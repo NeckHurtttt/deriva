@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deriva · ¿fumigo hoy?</title>
+  <meta name="description" content="Semáforo hora por hora para pulverizar: viento, ráfagas, delta T, inversión térmica, calor y lluvia antes del tiempo de lavado.">
+  <meta name="theme-color" content="#123524">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23123524'/%3E%3Ccircle cx='10' cy='16' r='4' fill='%2334c759'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23ffcc00'/%3E%3Ccircle cx='22' cy='16' r='4' fill='%23ff3b30'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="top"><div class="wrap top-in">
+    <div class="brand"><span class="drops"><i></i><i></i><i></i></span>Deriva</div>
+    <span class="tag">¿fumigo hoy?</span>
+  </div></header>
+
+  <main class="wrap">
+    <section class="setup card">
+      <div class="field"><span>Lugar</span>
+        <div class="chips" id="places"></div>
+        <button id="gps" class="ghost" type="button">📍 Usar mi ubicación</button>
+      </div>
+      <div class="field"><span>Producto</span><select id="product"></select></div>
+      <div class="field"><span>Equipo</span><select id="method"></select></div>
+      <div class="field"><span>Horas que necesitas</span><input id="need" type="number" min="1" max="12" value="3"></div>
+    </section>
+
+    <section class="now card" id="now" aria-live="polite"><p class="loading">Cargando pronóstico…</p></section>
+
+    <section class="card">
+      <div class="card-h"><h2>Próximos 4 días, hora por hora</h2>
+        <div class="legend"><i class="go"></i>Buena <i class="caution"></i>Con cuidado <i class="no"></i>No aplicar</div></div>
+      <div id="grid" class="grid-wrap"></div>
+      <div id="detail" class="detail"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-h"><h2>Mejores ventanas</h2>
+        <label class="check"><input type="checkbox" id="caution"> incluir horas amarillas</label></div>
+      <div id="windows" class="windows"></div>
+    </section>
+
+    <section class="card info">
+      <h2>Qué mira Deriva</h2>
+      <div class="rules">
+        <div><b>💨 Viento</b><p>Entre 3 y 15 km/h es lo ideal (12 con dron). Más fuerte, la gota se vuela al lote del vecino.</p></div>
+        <div><b>🌫️ Inversión térmica</b><p>Sin viento, de noche o al amanecer con cielo limpio, el aire frío queda abajo y la nube de producto flota y viaja lejos.</p></div>
+        <div><b>💧 Delta T</b><p>Diferencia entre temperatura y bulbo húmedo. Entre 2 y 8 es lo mejor; sobre 10 la gota se evapora antes de llegar.</p></div>
+        <div><b>🌡️ Calor</b><p>Sobre 32 °C (28 °C para hormonales) hay más evaporación y volatilización.</p></div>
+        <div><b>🌧️ Lluvia</b><p>Si llueve antes del tiempo de lavado del producto (1 a 6 h), se pierde la aplicación.</p></div>
+      </div>
+      <p class="small">Pronóstico de <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (modelos meteorológicos abiertos). Es una guía: siempre manda la etiqueta del producto y lo que ves en el lote.</p>
+    </section>
+  </main>
+  <footer class="foot wrap">Hecho por <a href="https://github.com/NeckHurtttt">NeckHurtttt</a> · Santa Cruz, Bolivia · <a href="https://github.com/NeckHurtttt/deriva">código</a></footer>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
